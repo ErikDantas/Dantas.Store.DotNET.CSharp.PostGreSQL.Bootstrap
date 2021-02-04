@@ -1,0 +1,35 @@
+﻿
+<div>
+    <h2>Product List</h2>
+</div>
+
+
+<div>
+    <a href="~/Products/New">New Product</a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Register Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Type</td>
+                <td>@product.Quantity</td>
+                <td>@product.RegisterDate</td>
+                
+            </tr>
+        }
+        
+        
+    </tbody>
+</table>
