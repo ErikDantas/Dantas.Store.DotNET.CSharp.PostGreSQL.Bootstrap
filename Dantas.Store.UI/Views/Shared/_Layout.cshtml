@@ -1,17 +1,39 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Dantas Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <title>Dantas Store | @ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="~/Products">Products</a></li>
-            <li><a href="~/Home/About">About</a></li>
-        </ul>
+
+
+    @Html.Partial("_titles")
+
+
+
+    <div class="container-md">
+        @RenderBody()
     </div>
-    @RenderBody()
+
+
+
+    <footer class="footer mt-auto py-3 bg-light position-fixed">
+        <div class="container">
+            <span class="text-muted">&copy; @DateTime.Now.Year - Dantas Store Corporation</span>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper-utils.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+
+    @RenderSection("scripts", false)
+
 </body>
 </html>

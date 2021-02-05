@@ -10,11 +10,13 @@ namespace Dantas.Store.UI.Data
 {
     public class DantasStoreContext : DbContext
     {
-        public DantasStoreContext():base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dantasstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        public DantasStoreContext():base("StoreDbSQL")
         {
             Database.SetInitializer(new DbInitializer());
         }
 
-        public DbSet<Product> produtos { get; set; }
+        public DbSet<Product> products { get; set; }
+        public DbSet<ProductType> productTypes { get; set; }
+        public DbSet<Account> accounts { get; set; }
     }
 }

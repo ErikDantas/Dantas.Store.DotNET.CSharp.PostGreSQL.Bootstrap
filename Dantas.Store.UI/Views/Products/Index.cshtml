@@ -1,13 +1,23 @@
 ﻿
-<div>
-    <h2>Product List</h2>
+
+
+@{
+    ViewBag.Title = "Product List";
+
+
+}
+
+
+<div style="text-align:center" class="mt-3">
+    <h2>@ViewBag.Title</h2>
 </div>
 
 
-<div>
-    <a href="~/Products/New">New Product</a>
+<div class="mb-3">
+    <a class="btn btn-info" href="@Url.Action("New","Products")"><i class="fas fa-plus-square"></i> New Product</a>
 </div>
-<table>
+
+<table class="table table-hover table-responsive-sm table-striped mb-3">
     <thead>
         <tr>
             <th>Name</th>
@@ -15,21 +25,92 @@
             <th>Type</th>
             <th>Quantity</th>
             <th>Register Date</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in Model)
+        @foreach (Dantas.Store.UI.Models.Product product in Model)
         {
-            <tr>
+            <tr id="product-@product.Id">
                 <td>@product.Name</td>
                 <td>@product.Price</td>
-                <td>@product.Type</td>
+                <td>@product.ProductType.Name</td>
                 <td>@product.Quantity</td>
                 <td>@product.RegisterDate</td>
-                
+                <td class="btn-group">
+                    <a class="btn btn-sm btn-outline-success" href="@Url.Action("New",new { Id=product.Id})"><i class="fas fa-edit"></i> Edit</a>
+                    <button class="btn btn-sm btn-outline-danger" onclick="delProd('@product.Id','@product.Name')"><i class="fas fa-trash"></i> Delete</button>
+                </td>
+
             </tr>
         }
-        
-        
+
+
     </tbody>
 </table>
+
+
+<div data-id="0" id="modalDelete" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Product Delete</h5>
+            </div>
+            <div class="modal-body">
+                <p>Do you wanna to remove the product <strong><span id="spanModalProduct"></span></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="closeModal()" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" onclick="confirmDelPro()" class="btn btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function closeModal() {
+        $('#modalDelete').modal('hide')
+    }
+
+
+    function delProd(id, nome) {
+        //var ans = confirm(`Do you wanna to remove the product '${nome}'? `)
+        //if (ans) {
+        //    confirmDelPro(id)
+        //}
+        $('#spanModalProduct').text(nome)
+        $('#modalDelete').data('id', id).modal('show')
+
+    }
+
+    function confirmDelPro() {
+        let id = $('#modalDelete').data('id')
+
+
+        let xhr = new XMLHttpRequest()
+        const url = `/Products/confirmDelProd/${id}`
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 404) {
+                $('#modalDelete').data('id', '0').modal('hide')
+                toastr.error('Product not found.', 'Dantas Store')
+            }
+            if (this.readyState === 4 && this.status === 200) {
+
+                let temp = document.querySelector(`#product-${id}`)
+                if (temp !== null) {
+                    temp.remove()
+                }
+                toastr.success('Deleted with success!', 'Dantas Store')
+                $('#modalDelete').modal('hide')
+               
+            }
+        }
+
+        xhr.open('get', url)
+        xhr.send()
+
+
+    }
+</script>
