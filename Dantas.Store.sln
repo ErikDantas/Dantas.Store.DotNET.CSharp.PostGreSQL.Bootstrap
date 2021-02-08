@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dantas.Store.UI", "Dantas.Store.UI\Dantas.Store.UI.csproj", "{E0DDF615-B94A-4651-8351-58561E03CE9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dantas.Store.Domain", "Dantas.Store.Domain\Dantas.Store.Domain.csproj", "{A4B6B683-B4A6-474F-96AB-F2C557E776A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dantas.Store.Data", "Dantas.Store.Data\Dantas.Store.Data.csproj", "{FD6354F3-6DA1-4D9F-8B5B-0DB9693FA69F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{E0DDF615-B94A-4651-8351-58561E03CE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0DDF615-B94A-4651-8351-58561E03CE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0DDF615-B94A-4651-8351-58561E03CE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B6B683-B4A6-474F-96AB-F2C557E776A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B6B683-B4A6-474F-96AB-F2C557E776A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B6B683-B4A6-474F-96AB-F2C557E776A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B6B683-B4A6-474F-96AB-F2C557E776A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6354F3-6DA1-4D9F-8B5B-0DB9693FA69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6354F3-6DA1-4D9F-8B5B-0DB9693FA69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6354F3-6DA1-4D9F-8B5B-0DB9693FA69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6354F3-6DA1-4D9F-8B5B-0DB9693FA69F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
