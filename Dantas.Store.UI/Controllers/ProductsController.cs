@@ -1,5 +1,5 @@
-﻿using Dantas.Store.UI.Data;
-using Dantas.Store.UI.Models;
+﻿using Dantas.Store.Data.EF;
+using Dantas.Store.Domain.Entities;
 using System.Linq;
 using System.Web.Mvc;
 

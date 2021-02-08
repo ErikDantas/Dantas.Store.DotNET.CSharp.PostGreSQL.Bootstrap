@@ -268,8 +268,6 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Data\DantasStoreContext.cs" />
-    <Compile Include="Data\DbInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -317,6 +315,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dantas.Store.Data\Dantas.Store.Data.csproj">
+      <Project>{fd6354f3-6da1-4d9f-8b5b-0db9693fa69f}</Project>
+      <Name>Dantas.Store.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dantas.Store.Domain\Dantas.Store.Domain.csproj">
+      <Project>{a4b6b683-b4a6-474f-96ab-f2c557e776a5}</Project>
+      <Name>Dantas.Store.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

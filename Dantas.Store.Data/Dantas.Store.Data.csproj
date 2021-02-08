@@ -56,6 +56,10 @@
     <Compile Include="EF\Maps\AccountMap.cs" />
     <Compile Include="EF\Maps\ProductMap.cs" />
     <Compile Include="EF\Maps\ProductTypeMap.cs" />
+    <Compile Include="EF\Repositories\RepositoryAccountEF.cs" />
+    <Compile Include="EF\Repositories\RepositoryProductEF.cs" />
+    <Compile Include="EF\Repositories\RepositoryEF.cs" />
+    <Compile Include="EF\Repositories\RepositoryProductTypeEF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

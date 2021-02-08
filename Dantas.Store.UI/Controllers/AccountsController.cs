@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
-using Dantas.Store.UI.Data;
+using Dantas.Store.Data.EF;
 using Dantas.Store.UI.Infra.Helpers;
 using Dantas.Store.UI.Models;
 
