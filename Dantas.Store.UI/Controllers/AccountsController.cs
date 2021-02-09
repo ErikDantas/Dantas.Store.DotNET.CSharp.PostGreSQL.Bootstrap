@@ -2,12 +2,12 @@
 using System.Web.Mvc;
 using System.Web.Security;
 using Dantas.Store.Data.EF;
-using Dantas.Store.UI.Infra.Helpers;
-using Dantas.Store.UI.Models;
+using Dantas.Store.Domain.Helpers;
+using Dantas.Store.UI.ViewModels.Account;
 
 namespace Dantas.Store.UI.Controllers
 {
-    
+
     public class AccountsController : Controller
     {
         private readonly DantasStoreContext _context = new DantasStoreContext();

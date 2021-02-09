@@ -271,13 +271,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infra\Helpers\StringHelpers.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Entity.cs" />
-    <Compile Include="Models\LoginVM.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Account\LoginVM.cs" />
+    <Compile Include="ViewModels\Products\AddEdit\Maps\Extension.cs" />
+    <Compile Include="ViewModels\Products\AddEdit\ProductAddEditVM.cs" />
+    <Compile Include="ViewModels\Products\Index\Maps\Extension.cs" />
+    <Compile Include="ViewModels\Products\Index\ProductsVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

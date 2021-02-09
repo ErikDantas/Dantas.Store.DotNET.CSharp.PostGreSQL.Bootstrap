@@ -1,5 +1,9 @@
-﻿using Dantas.Store.Data.EF;
+﻿using Dantas.Store.Data.EF.Repositories;
+using Dantas.Store.Domain.Contracts.Repositories;
 using Dantas.Store.Domain.Entities;
+using Dantas.Store.UI.ViewModels.Products.AddEdit;
+using Dantas.Store.UI.ViewModels.Products.AddEdit.Maps;
+using Dantas.Store.UI.ViewModels.Products.Index.Maps;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -8,46 +12,47 @@ namespace Dantas.Store.UI.Controllers
     [Authorize]
     public class ProductsController:Controller
     {
-        private readonly DantasStoreContext _context = new DantasStoreContext();
+        private readonly IRepositoryProduct _ProductRepository = new RepositoryProductEF();
+        private readonly IRepositoryProductType _ProductTypeRepository = new RepositoryProductTypeEF();
 
         public ViewResult Index()
         {
-            
-            var products = _context.products.ToList();
-            ViewBag.TotalList = products.Count();
+
+            var products = _ProductRepository.FindAll().toProductsVM();
             return View(products);
         }
 
         [HttpGet]
         public ViewResult New(int? id)
         {
-            Product product = new Product();
+            var product = new ProductAddEditVM();
             if (id != null)
             {
-                product = _context.products.Find(id);
+                product = _ProductRepository.Get((int)id).toProductAddEditVM();
             }
-            var types = _context.productTypes.ToList();
+            var types = _ProductTypeRepository.FindAll();
             ViewBag.Types = types;
             return View(product);
         }
 
         [HttpPost]
-        public ActionResult New(Product product)
+        public ActionResult New(ProductAddEditVM productmodel)
         {
+            Product product = productmodel.toProduct();
             if (ModelState.IsValid) { 
                 if (product.Id == 0)
                 {
-                    _context.products.Add(product);
+                    _ProductRepository.Add(product);
                 }
                 else
                 {
-                    _context.Entry(product).State = System.Data.Entity.EntityState.Modified;
+                    _ProductRepository.Edit(product);
                 }
-                _context.SaveChanges();
+             
            
                 return RedirectToAction("Index");
             }
-            var types = _context.productTypes.ToList();
+            var types = _ProductTypeRepository.FindAll();
             ViewBag.Types = types;
             return View(product);
         }
@@ -55,19 +60,19 @@ namespace Dantas.Store.UI.Controllers
 
         public ActionResult confirmDelProd(int id)
         {
-            var product = _context.products.Find(id);
+            var product = _ProductRepository.Get(id);
             if(product == null)
             {
                 return HttpNotFound();
             }
-            _context.products.Remove(product);
-            _context.SaveChanges();
+            _ProductRepository.Delete(product);
             return null;
         }
 
         protected override void Dispose(bool disposing)
         {
-            _context.Dispose();
+            _ProductRepository.Dispose();
+            _ProductTypeRepository.Dispose();
         }
 
     }

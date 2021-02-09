@@ -29,12 +29,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Dantas.Store.UI.Models.Product product in Model)
+        @foreach (Dantas.Store.UI.ViewModels.Products.Index.ProductsVM product in Model)
         {
             <tr id="product-@product.Id">
                 <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td>@product.ProductType.Name</td>
+                <td>@product.Price.ToString("C2")</td>
+                <td>@product.ProductType</td>
                 <td>@product.Quantity</td>
                 <td>@product.RegisterDate</td>
                 <td class="btn-group">
