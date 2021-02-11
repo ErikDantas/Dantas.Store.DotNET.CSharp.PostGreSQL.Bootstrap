@@ -1,19 +1,29 @@
-﻿@model Dantas.Store.Domain.Entities.ProductType
+﻿@model Dantas.Store.UI.ViewModels.ProductTypes.ProductTypesVM
 
-@{ 
+
+@{
     ViewBag.Title = "Add New Type";
 }
 
 <h3 style="text-align:center">@ViewBag.Title</h3>
 
-
+<div>@Html.ValidationSummary(true)</div>
 <form method="post">
     <div class="form-group">
-        <label>Nome</label>
-        @Html.TextBoxFor(x => x.Name, new { @class="form-control", autofocus=""})
+        <label>Name</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", autofocus = "" })
+        <div>
+            @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+        </div>
     </div>
     <div>
         <input class="btn btn-success" type="submit" value="Save">
-        <a class="btn btn-secondary" href="@Url.Action("Index","Products")">Cancel</a>
+        <a class="btn btn-secondary" href="@Url.Action("Index","ProductTypes")">Cancel</a>
     </div>
 </form>
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap.my.validation.js"></script>
+}  

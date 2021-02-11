@@ -278,6 +278,8 @@
     <Compile Include="ViewModels\Products\AddEdit\ProductAddEditVM.cs" />
     <Compile Include="ViewModels\Products\Index\Maps\Extension.cs" />
     <Compile Include="ViewModels\Products\Index\ProductsVM.cs" />
+    <Compile Include="ViewModels\ProductTypes\ProductTypesVM.cs" />
+    <Compile Include="ViewModels\ProductTypes\Maps\Extension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
