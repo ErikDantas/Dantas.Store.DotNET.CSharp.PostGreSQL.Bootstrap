@@ -1,0 +1,19 @@
+﻿@model Dantas.Store.Domain.Entities.ProductType
+
+@{ 
+    ViewBag.Title = "Add New Type";
+}
+
+<h3 style="text-align:center">@ViewBag.Title</h3>
+
+
+<form method="post">
+    <div class="form-group">
+        <label>Nome</label>
+        @Html.TextBoxFor(x => x.Name, new { @class="form-control", autofocus=""})
+    </div>
+    <div>
+        <input class="btn btn-success" type="submit" value="Save">
+        <a class="btn btn-secondary" href="@Url.Action("Index","Products")">Cancel</a>
+    </div>
+</form>

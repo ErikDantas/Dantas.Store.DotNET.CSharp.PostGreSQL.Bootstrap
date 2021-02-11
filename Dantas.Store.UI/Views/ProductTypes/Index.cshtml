@@ -1,0 +1,32 @@
+﻿
+
+@{ 
+    ViewBag.Title = "Product Types";
+}
+
+
+<h3 style="text-align:center">@ViewBag.Title</h3>
+
+<div>
+    <table class="table table-hover table-responsive-sm table-striped" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Register Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (Dantas.Store.Domain.Entities.ProductType item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.RegisterDate</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
